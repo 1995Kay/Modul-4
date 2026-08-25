@@ -1,25 +1,68 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Schüler Verwaltung</title>
     <script src="index.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+      div {
+        margin-bottom: 8px;
+      }
+      label {
+        display: inline-block;
+        width: 100px;
+        font-weight: bold;
+      }
+      input,
+      select {
+        padding: 4px;
+      }
+    </style>
   </head>
   <body>
-    Element einfügen: <input type="number" id="content" />
-    <button onclick="printAll()">Anzeigen</button>
-    <button onclick="add()">Einfügen</button>
-    <hr />
-    Position löschen: <input type="number" id="deletePosition" />
+    <h2>Schüler eintragen</h2>
 
-    <button onclick="deleteByPosition()">loschen</button>
-    <hr />
-    Inhalt loschen: <input type="number" id="deleteContent" />
+    <div>
+      <label for="firstName">Vorname:</label>
+      <input type="text" id="firstName" />
+    </div>
+    <div>
+      <label for="lastName">Nachname:</label>
+      <input type="text" id="lastName" />
+    </div>
+    <div>
+      <label for="age">Alter:</label>
+      <input type="number" id="age" />
+    </div>
+    <div>
+      <label for="schoolClass">Klasse:</label>
+      <select id="schoolClass">
+        <option value="1">1.</option>
+        <option value="2">2.</option>
+        <option value="3">3.</option>
+        <option value="4">4.</option>
+      </select>
+    </div>
+    <div>
+      <label for="english">Englisch:</label>
+      <input type="number" id="english" min="1" max="6" />
+    </div>
+    <div>
+      <label for="german">Deutsch:</label>
+      <input type="number" id="german" min="1" max="6" />
+    </div>
+    <div>
+      <label for="math">Mathe:</label>
+      <input type="number" id="math" min="1" max="6" />
+    </div>
 
-    <button onclick="deleteByContent()">-</button>
-
-    <button onclick="multiply()">Multiplizieren</button>
-    <button onclick="sum()">Summe</button>
+    <br />
+    <button onclick="createStudent()">Erstellen</button>
+    <button onclick="showStudents()">Anzeigen</button>
   </body>
 </html>
