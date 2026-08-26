@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 24px;
+        border-radius: 10px;
+        padding: 1rem;
+        width: fit-content;
+        display: grid;
+        grid-column: auto;
+        gap: 1rem;
+      }
+
+      .card-header {
+        font-size: 2rem;
+      }
+
+      .card-body > img {
+        max-width: 15rem;
+      }
+    </style>
+    <script>
+      const randomImages = [
+        "https://cdn.pixabay.com/photo/2016/04/15/17/26/box-1331470_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2018/05/31/00/38/knight-3442900_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2016/11/22/22/04/float-1850828_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2019/05/17/04/58/agriculture-4208863_960_720.jpg",
+      ];
+
+      function like(url) {
+        alert("You like " + url);
+      }
+
+      function dislike(url) {
+        alert("You dislike " + url);
+      }
+
+      function addNew() {
+        //  Main
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        //  Kopf header
+        const header = document.createElement("div");
+        header.classList.add("card-header");
+        header.innerText = "Title of Card";
+
+        //  Body
+        const body = document.createElement("div");
+        body.classList.add("card-body");
+
+        //  footer e
+        const footer = document.createElement("div");
+        footer.classList.add("card-footer");
+
+        //  Buttons
+        const likeButton = document.createElement("button");
+        likeButton.setAttribute(onclick, `like('${randomImages}')`);
+        likeButton.innerText = "Like";
+
+        const dislikeButton = document.createElement("button");
+        dislikeButton.setAttribute(onclick, `Dislike('${randomImages}')`);
+        dislikeButton.innerText = "Dislike";
+
+        //  zufällig
+        const randomImage =
+          randomImages[Math.floor(Math.random() * randomImages.length)];
+        const img = document.createElement("img");
+        img.src = randomImage;
+
+        //  Alles ????
+        body.appendChild(img); // Bild in den Body
+        footer.appendChild(likeButton); // Buttons in den Footer
+        footer.appendChild(dislikeButton);
+
+        card.appendChild(header); // Header, Body und Footer in die Karte
+        card.appendChild(body);
+        card.appendChild(footer);
+
+        // end
+        document.getElementById("wrapper").appendChild(card);
+      }
+      // TODO 1: Elemente erstellen (Card, Header, Body, Footer, Like, Dislike)
+      //TODO 2: Klassen setzen (card, card-header, card-body)
+      // TODO 3: Texte erzeugen (Title of a card, Like, Dislike)
+      // TODO 4: Texte anfügen an Elemente
+      //TODO 3: Image setzen
+      // TODO 5: Elemente aneinander fügen
+      // TODO 6: Wrapper Elemente append Child
+
+      function addNewByString() {
+        console.log(Math.random() * randomImages.length);
+        const randomImage =
+          randomImages[Math.floor(Math.random() * randomImages.length)];
+        console.log(randomImage);
+
+        const htmlString = `<div class="card">
+                    <div class="card-header">Title of a card</div>
+                    <div class="card-body">
+                      <img
+                        src="${randomImage}"
+                      />
+                    </div>
+                    <div class="card-footer">
+                      <button
+                        onclick="
+                          like(
+                            '${randomImage}',
+                          )
+                        "
+                      >
+                        Like
+                      </button>
+                      <button
+                        onclick="
+                          dislike(
+                            '${randomImage}',
+                          )
+                        "
+                      >
+                        Dislike
+                      </button>
+                    </div>
+                  </div>S`;
+        console.log(htmlString);
+        document.getElementById("wrapper").innerHTML = htmlString;
+        // TODO 1: Random Image
+        // TODO 2: String setzen (mit ${}-Notation)
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="card-header">Title of a card</div>
+      <div class="card-body">
+        <img
+          src="https://cdn.pixabay.com/photo/2016/04/15/17/26/box-1331470_960_720.jpg"
+        />
+      </div>
+      <div class="card-footer">
+        <button
+          onclick="
+            like(
+              'https://cdn.pixabay.com/photo/2016/04/15/17/26/box-1331470_960_720.jpg',
+            )
+          "
+        >
+          Like
+        </button>
+        <button
+          onclick="
+            dislike(
+              'https://cdn.pixabay.com/photo/2016/04/15/17/26/box-1331470_960_720.jpg',
+            )
+          "
+        >
+          Dislike
+        </button>
+      </div>
+    </div>
+    <button onclick="addNewByString()">Add By String</button>
+    <button onclick="addNew()">Add New</button>
+    <div id="wrapper"></div>
+  </body>
+</html>

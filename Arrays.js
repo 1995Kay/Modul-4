@@ -34,6 +34,7 @@ function multiply() {
 
 function sum() {
   const sum = liste.reduce((previousValue, currentValue) => {
+    console.log(previousValue, currentValue);
     return previousValue + currentValue;
   });
   console.log(sum);
