@@ -1,23 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Quiz App</title>
     <link rel="stylesheet" href="index.css" />
-    <div>>Was ist die Hauptstadt von Deutschland</div>
   </head>
   <body>
-    <div class="hey">
-      <button onclick="Option1()" ;>Hamburg</button>
-      <button onclick="Option2()" ;>München</button>
-      <button onclick="Option3()" ;>Berlin</button>
-      <button onclick="Option4()" ;>Hannover</button>
+    <div class="quiz-container">
+      <h1 class="question">Was ist die Hauptstadt von Deutschland?</h1>
+
+      <div class="answers">
+        <button
+          id="btn-hamburg"
+          class="answer-btn"
+          onclick="checkAnswer('hamburg')"
+        >
+          Hamburg
+        </button>
+        <button
+          id="btn-muenchen"
+          class="answer-btn"
+          onclick="checkAnswer('muenchen')"
+        >
+          München
+        </button>
+        <button
+          id="btn-berlin"
+          class="answer-btn"
+          onclick="checkAnswer('berlin')"
+        >
+          Berlin
+        </button>
+        <button
+          id="btn-hannover"
+          class="answer-btn"
+          onclick="checkAnswer('hannover')"
+        >
+          Hannover
+        </button>
+      </div>
+
+      <div class="footer-actions">
+        <button class="action-btn" onclick="showSolution()">Lösung</button>
+        <button class="action-btn" onclick="nextQuestion()">Weiter</button>
+      </div>
     </div>
-    <div>
-      <button onclick="Lösung()" ;>Auflösung</button>
-      <button onclick="Next()" ;>Weiter</button>
-    </div>
+
+    <script src="index.js"></script>
   </body>
 </html>
-Option1
