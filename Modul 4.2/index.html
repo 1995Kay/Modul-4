@@ -8,45 +8,17 @@
   </head>
   <body>
     <div class="quiz-container">
-      <h1 class="question">Was ist die Hauptstadt von Deutschland?</h1>
+      <!-- IDs hinzugefügt, damit JavaScript den Text austauschen kann -->
+      <h1 class="question" id="question-text">Frage lädt...</h1>
 
-      <div class="answers">
-        <button
-          id="btn-hamburg"
-          class="answer-btn"
-          onclick="checkAnswer('hamburg')"
-        >
-          Hamburg
-        </button>
-        <button
-          id="btn-muenchen"
-          class="answer-btn"
-          onclick="checkAnswer('muenchen')"
-        >
-          München
-        </button>
-        <button
-          id="btn-berlin"
-          class="answer-btn"
-          onclick="checkAnswer('berlin')"
-        >
-          Berlin
-        </button>
-        <button
-          id="btn-hannover"
-          class="answer-btn"
-          onclick="checkAnswer('hannover')"
-        >
-          Hannover
-        </button>
-      </div>
+      <!-- Dieser Container ist jetzt leer. JS wirft die Buttons hier hinein. -->
+      <div class="answers" id="answers-container"></div>
 
       <div class="footer-actions">
         <button class="action-btn" onclick="showSolution()">Lösung</button>
         <button class="action-btn" onclick="nextQuestion()">Weiter</button>
       </div>
     </div>
-
     <script src="index.js"></script>
   </body>
 </html>
