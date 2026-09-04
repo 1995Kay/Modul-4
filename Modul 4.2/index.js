@@ -1,4 +1,3 @@
-// 1. Die Datenstruktur (Array mit Objekten aus deinem Video)
 const questions = [
   {
     id: 1,
@@ -22,44 +21,38 @@ const questions = [
   },
 ];
 
-// 2. Status-Variable: Speichert, bei der wievielten Frage wir gerade sind (Start bei 0)
 let currentQuestionIndex = 0;
 
-// 3. Funktion zum Bauen der aktuellen Frage
 function renderQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
 
-  // Titel aktualisieren
   document.getElementById("question-text").innerText = currentQuestion.question;
 
-  // Alten Inhalt aus dem Antworten-Container löschen
   const answersContainer = document.getElementById("answers-container");
   answersContainer.innerHTML = "";
 
-  // Für jede Antwortmöglichkeit einen neuen Button generieren
   currentQuestion.answers.forEach((answer) => {
     const button = document.createElement("button");
     button.innerText = answer.text;
     button.classList.add("answer-btn");
     button.id = `btn-${answer.id}`;
 
-    // Gibt direkt den Wahrheitswert (true/false) an die Check-Funktion weiter
     button.onclick = () => checkAnswer(button.id, answer.correct);
 
     answersContainer.appendChild(button);
   });
 }
 
-// 4. Antwort überprüfen
 function checkAnswer(buttonId, isCorrect) {
   if (isCorrect) {
     document.getElementById(buttonId).classList.add("correct");
+    alert("Richtig! Super gemacht.");
   } else {
     document.getElementById(buttonId).classList.add("wrong");
+    alert("Leider falsch!");
   }
 }
 
-// 5. Lösung anzeigen (Sucht die Antwort mit correct: true)
 function showSolution() {
   const currentQuestion = questions[currentQuestionIndex];
   currentQuestion.answers.forEach((answer) => {
@@ -69,18 +62,16 @@ function showSolution() {
   });
 }
 
-// 6. Zur nächsten Frage wechseln
 function nextQuestion() {
-  currentQuestionIndex++; // Index um 1 erhöhen
+  currentQuestionIndex++;
 
   if (currentQuestionIndex < questions.length) {
-    renderQuestion(); // Nächste Frage bauen
+    renderQuestion();
   } else {
     alert("Du hast alle Fragen beantwortet!");
-    currentQuestionIndex = 0; // Quiz neustarten
+    currentQuestionIndex = 0;
     renderQuestion();
   }
 }
 
-// 7. Startschuss: Die erste Frage beim Laden der Seite direkt anzeigen
 renderQuestion();
